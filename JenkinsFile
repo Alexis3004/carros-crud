@@ -10,6 +10,7 @@ pipeline {
         stage('Limpiar'){
             steps {
                 // Run Maven on a Unix agent.
+                echo "limpiando"
                 sh "mvn clean"
                 // To run Maven on a Windows agent, use
                 //bat "mvn clean"
@@ -20,6 +21,7 @@ pipeline {
         stage('compilar'){
             steps {
                 // Run Maven on a Unix agent.
+                echo "compilando"
                 sh "mvn compile"
                 // To run Maven on a Windows agent, use
                 //bat "mvn clean"
@@ -30,6 +32,7 @@ pipeline {
         stage('test'){
             steps {
                 // Run Maven on a Unix agent.
+                echo "test"
                 sh "mvn test"
                 // To run Maven on a Windows agent, use
                 //bat "mvn clean"
