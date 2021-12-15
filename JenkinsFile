@@ -16,8 +16,6 @@ pipeline {
                 //bat "mvn clean"
             }
         }
-    }
-    stages {
         stage('compilar'){
             steps {
                 // Run Maven on a Unix agent.
@@ -27,8 +25,6 @@ pipeline {
                 //bat "mvn clean"
             }
         }
-    }
-    stages {
         stage('test'){
             steps {
                 // Run Maven on a Unix agent.
@@ -38,8 +34,6 @@ pipeline {
                 //bat "mvn clean"
             }
         }
-    }
-    stages {
         stage('Empaquetar'){
             steps {
                 // Run Maven on a Unix agent.
