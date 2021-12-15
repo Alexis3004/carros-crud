@@ -34,7 +34,7 @@ public class Carro {
 		return marca;
 	}
 
-	public void setSalario(String marca) {
+	public void setMarca(String marca) {
 		this.marca = marca;
 	}
 }
