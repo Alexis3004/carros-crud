@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class CarroController {
 
-	@GetMapping("/getcarros")
+	@GetMapping("/getCarros")
 	public ArrayList<Carro> getAllCarros() {
 		ArrayList<Carro> carros = CarroServiceStub.getAllCarros();
 		if(carros.isEmpty()){
