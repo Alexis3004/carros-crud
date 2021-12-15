@@ -35,14 +35,6 @@ pipeline {
                 //bat "mvn clean"
             }
         }
-        stage('Empaquetar'){
-            steps {
-                // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true package"
-                // To run Maven on a Windows agent, use
-                //bat "mvn -Dmaven.test.failure.ignore=true package"
-            }
-        }
     }
     stages {
         stage('Empaquetar'){
