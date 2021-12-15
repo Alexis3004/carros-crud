@@ -27,7 +27,6 @@ class SpringCrudApplicationTests {
 	public void getCarrosTest() throws Exception{
 		mvc.perform(get("/getCarros").contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$", hasSize(3)))
 			.andExpect(jsonPath("$[0].nombre", is("picanto")))
 			.andExpect(jsonPath("$[1].nombre", is("spark")))
 			.andExpect(jsonPath("$[2].nombre", is("mazda 3")));
@@ -61,14 +60,14 @@ class SpringCrudApplicationTests {
 	}
 
 	@Test
-	@DisplayName("actualizar el carro 4")
+	@DisplayName("actualizar el carro 3")
 	public void updateCarroTest() throws Exception{
 		Carro carro = new Carro(3L, "pepito 2", "pepito 2");
-		mvc.perform(put("/putCarro/{id}",4)
+		mvc.perform(put("/putCarro/{id}",3)
 			.content(asJsonString(carro))
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.id", is(4)))
+			.andExpect(jsonPath("$.id", is(3)))
 			.andExpect(jsonPath("$.nombre", is("pepito 2")))
 			.andExpect(jsonPath("$.marca", is("pepito 2")));
 	}
@@ -76,16 +75,12 @@ class SpringCrudApplicationTests {
 	@Test
 	@DisplayName("eliminar carro 4")
 	public void deleteCarroTest() throws Exception{
-		mvc.perform(delete("/deleteCarro/{id}", 4)
+		mvc.perform(delete("/deleteCarro/{id}", 2)
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.id", is(4)))
-			.andExpect(jsonPath("$.nombre", is("pepito 2")))
-			.andExpect(jsonPath("$.marca", is("pepito 2")));
-
-		mvc.perform(get("/getCarros").contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$", hasSize(3)));
+			.andExpect(jsonPath("$.id", is(2)))
+			.andExpect(jsonPath("$.nombre", is("spark")))
+			.andExpect(jsonPath("$.marca", is("renault")));
 	}
 
 
